@@ -1,5 +1,21 @@
-# Gerenciador_de_Clinicas_Medicas
-Sistema de Gerenciamento de Clínicas Médicas
+# Sistema de Gerenciamento de Clínica Médica 🏥
+
+## Visão Geral
+API RESTful para gestão de clínicas médicas, incluindo:
+- 👨‍⚕️ Cadastro de médicos e pacientes  
+- 📅 Agendamento de consultas  
+- 🔐 Autenticação segura com JWT  
+- 📊 Relatórios de disponibilidade  
+- 📚 Documentação Swagger integrada
+
+## Tecnologias
+| Área           | Tecnologias                          |
+|----------------|--------------------------------------|
+| Backend        | Spring Boot 3, Java 17               |
+| Persistência   | Spring Data JPA, Hibernate, PostgreSQL |
+| Segurança      | Spring Security, JWT                 |
+| Documentação   | Swagger (OpenAPI 3.0)                |
+| Testes         | JUnit 5, Mockito                     |
 
 ```mermaid
 classDiagram
