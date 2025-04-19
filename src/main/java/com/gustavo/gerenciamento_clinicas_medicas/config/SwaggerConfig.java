@@ -9,15 +9,15 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-    @Bean
-    public OpenAPI springShopOpenAPI() {
-        return new OpenAPI()
-                .info(new Info().title("Clinica Médica API")
-                        .description("Sistema de gerenciamento de clínicas médicas")
-                        .version("v1.0")
-                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
-                .externalDocs(new ExternalDocumentation()
-                        .description("Documentação completa")
-                        .url("https://github.com/seu-usuario/clinica-api"));
-    }
+//    @Bean
+//    public OpenAPI springShopOpenAPI() {
+//        return new OpenAPI()
+//                .info(new Info().title("Clinica Médica API")
+//                        .description("Sistema de gerenciamento de clínicas médicas")
+//                        .version("v1.0")
+//                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+//                .externalDocs(new ExternalDocumentation()
+//                        .description("Documentação completa")
+//                        .url("https://github.com/seu-usuario/clinica-api"));
+//    }
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import javax.management.relation.Role;
+
 @Entity
 @Table(name = "Usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -26,11 +28,18 @@ public class Usuario {
     private String senha;
 
     @Enumerated(EnumType.STRING)
-    private String role;
+    private Role role;
 
     private Boolean ativo = true;
 
     public enum TipoUsuario {
         ADMIN, MEDICO, PACIENTE
+    }
+
+    public enum Role {
+        ADMIN,
+        MEDICO,
+        RECEPCIONISTA,
+        PACIENTE
     }
 }
