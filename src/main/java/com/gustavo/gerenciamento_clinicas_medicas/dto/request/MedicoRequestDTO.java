@@ -13,11 +13,11 @@ public class MedicoRequest {
     @NotBlank(message = "Especialidade é obrigatória")
     String especialidade;
 
-    // Campos herdados de Usuario
+
     @NotBlank String nome;
     @NotBlank String email;
     @NotBlank String senha;
 
-    // Opcional: Lista de IDs de disponibilidades para vincular
+
     List<Long> disponibilidadesIds;
 }

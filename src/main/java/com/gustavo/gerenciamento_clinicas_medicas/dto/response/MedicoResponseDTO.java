@@ -13,35 +13,27 @@ public class MedicoResponse {
     String nome;
     String email;
 
-    // Relacionamentos (opcional incluir apenas IDs ou objetos reduzidos)
-//    List<DisponibilidadeResumidaResponse> disponibilidades;
-//    List<ConsultaResumidaResponse> consultas;
-
-    // Estatísticas calculadas (opcional)
-    Long totalConsultas;
-    String statusAtividade;
-
 
     {
-//        // Método de conversão da entidade para DTO
-//        public static MedicoResponse fromEntity(Medico medico) {
-//            return new MedicoResponse(
-//                    medico.getId(),
-//                    medico.getCrm(),
-//                    medico.getEspecialidade(),
-//                    medico.getNome(),
-//                    medico.getEmail(),
-//                    medico.getDisponibilidades().stream()
-//                            .map(DisponibilidadeResumidaResponse::fromEntity)
-//                            .toList(),
-//                    medico.getConsultas().stream()
-//                            .map(ConsultaResumidaResponse::fromEntity)
-//                            .toList(),
-//                    (long) medico.getConsultas().size(),
-//                    medico.getDisponibilidades().isEmpty() ? "INATIVO" : "ATIVO"
-//            );
-//        }
-//    }
+        // Método de conversão da entidade para DTO
+        public static MedicoResponse fromEntity(Medico medico) {
+            return new MedicoResponse(
+                    medico.getId(),
+                    medico.getCrm(),
+                    medico.getEspecialidade(),
+                    medico.getNome(),
+                    medico.getEmail(),
+                    medico.getDisponibilidades().stream()
+                            .map(DisponibilidadeResumidaResponse::fromEntity)
+                            .toList(),
+                    medico.getConsultas().stream()
+                            .map(ConsultaResumidaResponse::fromEntity)
+                            .toList(),
+                    (long) medico.getConsultas().size(),
+                    medico.getDisponibilidades().isEmpty() ? "INATIVO" : "ATIVO"
+            );
+        }
+    }
 
         // Records auxiliares para relacionamentos
         record DisponibilidadeResumidaResponse(
@@ -72,4 +64,3 @@ public class MedicoResponse {
             }
         }
     }
-}
