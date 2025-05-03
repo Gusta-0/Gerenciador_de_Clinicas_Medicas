@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
-public record ConsultaRequest(
+public record ConsultaRequestDTO(
         @NotNull(message = "ID do médico é obrigatório")
         Long medicoId,
 

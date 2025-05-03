@@ -5,19 +5,22 @@ import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
 
-public class MedicoRequest {
-    @NotBlank(message = "CRM é obrigatório")
-    @Pattern(regexp = "\\d{4,10}[A-Za-z]?", message = "CRM deve conter de 4 a 10 dígitos, podendo ter letras")
-    String crm;
+public record MedicoRequestDTO(
+        @NotBlank(message = "CRM é obrigatório")
+        @Pattern(regexp = "\\d{4,10}[A-Za-z]?", message = "CRM deve conter de 4 a 10 dígitos, podendo ter letras")
+        String crm,
 
-    @NotBlank(message = "Especialidade é obrigatória")
-    String especialidade;
+        @NotBlank(message = "Especialidade é obrigatória")
+        String especialidade,
 
+        @NotBlank(message = "Nome é obrigatório")
+        String nome,
 
-    @NotBlank String nome;
-    @NotBlank String email;
-    @NotBlank String senha;
+        @NotBlank(message = "Email é obrigatório")
+        String email,
 
+        @NotBlank(message = "Senha é obrigatória")
+        String senha,
 
-    List<Long> disponibilidadesIds;
-}
+        List<Long> disponibilidadesIds
+) {}

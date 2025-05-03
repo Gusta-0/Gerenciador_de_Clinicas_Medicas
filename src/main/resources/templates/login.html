@@ -4,7 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Clínica</title>
-    <link rel="stylesheet"  th:href="@{/static.css/style.css}" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f2f1, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #2e7d32;
+            margin: 0 0 30px 0;
+            padding: 0;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4f4f4f;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"] {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1b5e20;
+        }
+
+        .forgot-password-btn {
+            background-color: #f5f5f5;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+
+        .forgot-password-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            text-align: center;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .forgot-password-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password-link a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <div class="login-container">

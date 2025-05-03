@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public record DisponibilidadeRequest(
+public record DisponibilidadeRequestDTO(
         @NotNull(message = "ID do médico é obrigatório")
         Long medicoId,
 
@@ -20,7 +20,7 @@ public record DisponibilidadeRequest(
 
         boolean disponivel
 ) {
-    public DisponibilidadeRequest {
+    public DisponibilidadeRequestDTO {
         if (horaInicio != null && horaFim != null && horaInicio.isAfter(horaFim)) {
             throw new IllegalArgumentException("Hora de início deve ser antes da hora de fim");
         }

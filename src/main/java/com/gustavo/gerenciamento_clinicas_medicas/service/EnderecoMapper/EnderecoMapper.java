@@ -1,17 +1,16 @@
 package com.gustavo.gerenciamento_clinicas_medicas.service.EnderecoMapper;
 
-import com.gustavo.gerenciamento_clinicas_medicas.dto.request.EnderecoRequest;
-import com.gustavo.gerenciamento_clinicas_medicas.dto.response.EnderecoResponse;
+import com.gustavo.gerenciamento_clinicas_medicas.dto.request.EnderecoRequestDTO;
+import com.gustavo.gerenciamento_clinicas_medicas.dto.response.EnderecoResponseDTO;
 import com.gustavo.gerenciamento_clinicas_medicas.model.Endereco;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class EnderecoMapper {
 
-    public Endereco toEntity(EnderecoRequest request) {
+    public Endereco toEntity(EnderecoRequestDTO request) {
         return Endereco.builder()
-                .logradouro(request.logradouro().trim())
+                .rua(request.Rua().trim())
                 .numero(request.numero())
                 .complemento(request.complemento() != null ? request.complemento().trim() : null)
                 .bairro(request.bairro().trim())
@@ -21,9 +20,9 @@ public class EnderecoMapper {
                 .build();
     }
 
-    public EnderecoResponse toResponse(Endereco entity) {
-        return new EnderecoResponse(
-                entity.getLogradouro(),
+    public EnderecoResponseDTO toResponse(Endereco entity) {
+        return new EnderecoResponseDTO(
+                entity.getRua(),
                 entity.getNumero(),
                 entity.getComplemento(),
                 entity.getBairro(),
@@ -40,7 +39,7 @@ public class EnderecoMapper {
 
     private String gerarEnderecoCompleto(Endereco endereco) {
         return String.format("%s, %s%s - %s, %s/%s - CEP: %s",
-                endereco.getLogradouro(),
+                endereco.getRua(),
                 endereco.getNumero(),
                 endereco.getComplemento() != null ? " (" + endereco.getComplemento() + ")" : "",
                 endereco.getBairro(),

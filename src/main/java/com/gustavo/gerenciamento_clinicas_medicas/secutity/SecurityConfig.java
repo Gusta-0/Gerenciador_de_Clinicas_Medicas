@@ -1,4 +1,4 @@
-package com.gustavo.gerenciamento_clinicas_medicas.config;
+package com.gustavo.gerenciamento_clinicas_medicas.secutity;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,34 +13,43 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
-public class SecurityConfig {
+public class SecurityConfig { // Mudei o nome da classe também
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withUsername("user")
+    public InMemoryUserDetailsManager gerenciadorUsuariosEmMemoria() { // Nome traduzido
+        UserDetails usuario = User.withUsername("user")
                 .password("{noop}user123")
                 .roles("USERS")
                 .build();
 
-        UserDetails admin = User.withUsername("admin")
+        UserDetails administrador = User.withUsername("admin")
                 .password("{noop}master123")
                 .roles("MANAGERS")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin);
+        return new InMemoryUserDetailsManager(usuario, administrador);
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain cadeiaDeFiltros(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(autorizacao -> autorizacao
+                        .requestMatchers("/h2-console/**", "/login", "/esqueci-senha").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(form -> form
-                        .loginPage("/login") // URL do seu formulário customizado
-                        .permitAll()         // Deixa qualquer um acessar a página de login
+                .formLogin(formulario -> formulario
+                        .loginPage("/login")
+                        .permitAll()
                 )
-                .logout(logout -> logout.permitAll());
+                .logout(saida -> saida.permitAll())
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame.sameOrigin()) // alternativa atual ao .frameOptions().sameOrigin()
+                )
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/h2-console/**")
+                );
+
         return http.build();
     }
+
 }

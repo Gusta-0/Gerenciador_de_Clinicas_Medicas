@@ -5,7 +5,7 @@ import com.gustavo.gerenciamento_clinicas_medicas.model.Disponibilidade;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public record DisponibilidadeResponse(
+public record DisponibilidadeResponseDTO(
         Long id,
         Long medicoId,
         String medicoNome,
@@ -14,8 +14,8 @@ public record DisponibilidadeResponse(
         LocalTime horaFim,
         boolean disponivel
 ) {
-    public static DisponibilidadeResponse fromEntity(Disponibilidade disponibilidade) {
-        return new DisponibilidadeResponse(
+    public static DisponibilidadeResponseDTO fromEntity(Disponibilidade disponibilidade) {
+        return new DisponibilidadeResponseDTO(
                 disponibilidade.getId(),
                 disponibilidade.getMedico().getId(),
                 disponibilidade.getMedico().getNome(),

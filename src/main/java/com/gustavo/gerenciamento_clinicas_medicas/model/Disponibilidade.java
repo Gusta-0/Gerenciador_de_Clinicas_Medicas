@@ -6,7 +6,6 @@ import lombok.Data;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 @Entity
-@Table(name = "Disponibilidade")
 @Data
 public class Disponibilidade {
     @Id

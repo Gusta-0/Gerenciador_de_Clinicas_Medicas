@@ -2,7 +2,7 @@ package com.gustavo.gerenciamento_clinicas_medicas.dto.response;
 
 import com.gustavo.gerenciamento_clinicas_medicas.model.Endereco;
 
-public record EnderecoResponse(
+public record EnderecoResponseDTO(
         String logradouro,
         String numero,
         String complemento,
@@ -12,9 +12,9 @@ public record EnderecoResponse(
         String cep,
         String enderecoCompleto
 ) {
-    public static EnderecoResponse fromEntity(Endereco endereco) {
-        return new EnderecoResponse(
-                endereco.getLogradouro(),
+    public static EnderecoResponseDTO fromEntity(Endereco endereco) {
+        return new EnderecoResponseDTO(
+                endereco.getRua(),
                 endereco.getNumero(),
                 endereco.getComplemento(),
                 endereco.getBairro(),
@@ -30,14 +30,17 @@ public record EnderecoResponse(
     }
 
     private static String gerarEnderecoCompleto(Endereco endereco) {
-        return String.format("%s, %s %s - %s, %s/%s - CEP: %s",
-                endereco.getLogradouro(),
+        String complemento = endereco.getComplemento();
+        String complementoFormatado = (complemento != null && !complemento.isBlank()) ? " (" + complemento + ")" : "";
+
+        return String.format("%s, %s%s - %s, %s/%s - CEP: %s",
+                endereco.getRua(),
                 endereco.getNumero(),
-                endereco.getComplemento() != null ? "(" + endereco.getComplemento() + ")" : "",
+                complementoFormatado,
                 endereco.getBairro(),
                 endereco.getCidade(),
                 endereco.getEstado(),
-                formatarCep(endereco.getCep())
-        );
+                formatarCep(endereco.getCep()));
     }
+
 }

@@ -4,7 +4,7 @@ import com.gustavo.gerenciamento_clinicas_medicas.model.Consulta;
 
 import java.time.LocalDateTime;
 
-public record ConsultaResponse(
+public record ConsultaResponseDTO(
         Long id,
         Long medicoId,
         String medicoNome,
@@ -14,8 +14,8 @@ public record ConsultaResponse(
         String status,
         String observacoes
 ) {
-    public static ConsultaResponse fromEntity(Consulta consulta) {
-        return new ConsultaResponse(
+    public static ConsultaResponseDTO fromEntity(Consulta consulta) {
+        return new ConsultaResponseDTO(
                 consulta.getId(),
                 consulta.getMedico().getId(),
                 consulta.getMedico().getNome(),

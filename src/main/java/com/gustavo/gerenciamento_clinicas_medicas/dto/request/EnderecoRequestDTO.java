@@ -4,10 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record EnderecoRequest(
-        @NotBlank(message = "Logradouro é obrigatório")
-        @Size(max = 100, message = "Logradouro deve ter no máximo 100 caracteres")
-        String logradouro,
+public record EnderecoRequestDTO(
+        @NotBlank(message = "A rua é obrigatório")
+        @Size(max = 100, message = "A rua deve ter no máximo 100 caracteres")
+        String Rua,
 
         @NotBlank(message = "Número é obrigatório")
         @Size(max = 10, message = "Número deve ter no máximo 10 caracteres")
