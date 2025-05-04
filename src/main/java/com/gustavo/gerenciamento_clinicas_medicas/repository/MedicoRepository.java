@@ -1,6 +1,7 @@
 package com.gustavo.gerenciamento_clinicas_medicas.repository;
 
 import com.gustavo.gerenciamento_clinicas_medicas.model.Medico;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,4 +21,6 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
     @Query("SELECT m FROM Medico m WHERE SIZE(m.consultas) > :minConsultas")
     List<Medico> findMaisAtivos(@Param("minConsultas") int minConsultas);
+
+    boolean existsByCrm(@NotBlank String crm);
 }

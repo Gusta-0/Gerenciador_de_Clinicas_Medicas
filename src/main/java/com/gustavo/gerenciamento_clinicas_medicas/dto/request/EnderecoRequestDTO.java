@@ -1,6 +1,8 @@
 package com.gustavo.gerenciamento_clinicas_medicas.dto.request;
 
+import com.gustavo.gerenciamento_clinicas_medicas.model.Endereco;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -32,8 +34,18 @@ public record EnderecoRequestDTO(
         @Pattern(regexp = "\\d{5}-?\\d{3}", message = "CEP deve seguir o padrão 00000-000 ou 00000000")
         String cep
 ) {
+        public Endereco toModel() {
+                return new Endereco(
+                        Rua,
+                        numero,
+                        complemento,
+                        bairro,
+                        cidade,
+                        estado,
+                        cep
+                );
+        }
 }
-
 /* request {
   "logradouro": "Rua das Flores",
   "numero": "123",

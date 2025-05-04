@@ -1,5 +1,6 @@
 package com.gustavo.gerenciamento_clinicas_medicas.dto.request;
 
+import com.gustavo.gerenciamento_clinicas_medicas.model.Endereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -26,4 +27,16 @@ public record PacienteRequestDTO (
 
         @NotNull(message = "Endereço é obrigatório")
         EnderecoRequestDTO endereco
-){}
+){
+        public static Endereco toEntity(EnderecoRequestDTO dto) {
+                Endereco endereco = new Endereco();
+                endereco.setCep(dto.cep());
+                endereco.setRua(dto.Rua());
+                endereco.setNumero(dto.numero());
+                endereco.setComplemento(dto.complemento());
+                endereco.setBairro(dto.bairro());
+                endereco.setCidade(dto.cidade());
+                endereco.setEstado(dto.estado());
+                return endereco;
+        }
+}

@@ -2,7 +2,7 @@ package com.gustavo.gerenciamento_clinicas_medicas.controller;
 
 import com.gustavo.gerenciamento_clinicas_medicas.dto.request.UsuarioRequestDTO;
 import com.gustavo.gerenciamento_clinicas_medicas.dto.response.UsuarioResponseDTO;
-import com.gustavo.gerenciamento_clinicas_medicas.service.EnderecoMapper.UsuarioService;
+import com.gustavo.gerenciamento_clinicas_medicas.service.UsuarioService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.gustavo.gerenciamento_clinicas_medicas.service.EnderecoMapper;
+package com.gustavo.gerenciamento_clinicas_medicas.service;
 
 import com.gustavo.gerenciamento_clinicas_medicas.dto.request.UsuarioRequestDTO;
 import com.gustavo.gerenciamento_clinicas_medicas.dto.response.UsuarioResponseDTO;
